@@ -20,7 +20,7 @@
 
 
 <input type="number" placeholder="Année de sortie" name="annee" formControlName="annee">
-<p *ngIf="myForm.controls.annee.errors">
+<p *ngIf="myForm2.submitted && myForm.controls.annee.errors">
   {{myForm.controls.annee.errors['min']}}
 </p>
 
