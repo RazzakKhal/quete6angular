@@ -1,0 +1,29 @@
+<form [formGroup]="myForm" #myForm2="ngForm">
+
+  <div formGroupName="idOrTitle">
+  <input type="text" placeholder="Entre l'identifiant du film" name="id" formControlName="id"><br>
+  <input type="text" placeholder="Entre le titre" name="title" formControlName="title"><br>
+</div>
+
+<p *ngIf="myForm2.submitted && myForm.controls.idOrTitle.errors">{{myForm.controls.idOrTitle.errors['isRequired']}}</p>
+
+<select name="Type" id="Type" formControlName="typeSelect"><br>
+  <option value="film">film</option>
+  <option value="serie">série</option>
+  <option value="episode">épisode</option>
+</select>
+
+<select name="Fiche" id="Fiche" formControlName="ficheSelect"><br>
+  <option value="complete">complète</option>
+  <option value="courte">courte</option>
+</select><br>
+
+
+<input type="number" placeholder="Année de sortie" name="annee" formControlName="annee">
+<p *ngIf="myForm.controls.annee.errors">
+  {{myForm.controls.annee.errors['min']}}
+</p>
+
+
+<button (click)="afficheForm()">Soumettre</button>
+</form>
